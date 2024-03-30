@@ -1,0 +1,59 @@
+{% extends 'shared/../logged_in/shared/site.html' %}
+{% load static %}
+
+{% block site_content %}
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Upload image</h1>
+    </div>
+
+    <!-- Content Row -->
+
+    <div class="row">
+        
+        <!-- Drone route -->
+        <div class="col-xl-6 col-lg-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Image to validate</h6>
+                </div>
+                <div class="card-body">
+                    <div class="text-center">
+                        <h3 class="h4 text-gray-900 mb-4">Upload image to be analized by FieldScan model!</h3>
+                        {% if err_msg %}
+                            <span class="">{{err_msg}}</span>
+                        {% endif %}
+                    </div>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary btn-user btn-block">Upload</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Drone route -->
+        {% if uploaded_image_url %}
+            <div class="col-xl-6 col-lg-12">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Rezult</h6>
+                    </div>
+                    <div class="card-body text-center">
+                        <img src="{{uploaded_image_url }}" alt="Uploaded Image" style="height: 300px;">
+                    </div>
+                    <div class="text-center">
+                        <span class="{% if disease >= 50 %}text-danger{% else %}text-warning{% endif %}">
+                            Detected disease: <b>{{disease|floatformat:2}}%</b>
+                        </span>
+                        <br>
+                        <span class="{% if health >= 50 %}text-success{% else %}text-warning{% endif %}">
+                            Crop health: <b>{{health|floatformat:2}}%</b>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock  %}

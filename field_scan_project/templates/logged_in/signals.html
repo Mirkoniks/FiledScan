@@ -1,0 +1,126 @@
+{% extends 'shared/../logged_in/shared/site.html' %}
+{% load static %}
+
+{% block site_content %}
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+    </div>
+
+    <!-- Content Row -->
+
+    <div class="row">
+        <!-- Last 5 measurements -->
+        <div class="col-xl-12 col-lg-12">
+            <div class="card shadow mb-4">
+                <div class="card-body pb-0">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>Date</th>
+                                    <th>Condition</th>
+                                    <th>Airt (t°)</th>
+                                    <th>Air (%)</th>
+                                    <th>Earth (t°)</th>
+                                    <th>Earth (%)</th>
+                                    <th>Images</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="text-center bg-success text-white">
+                                    <td>15.03.2024<br>15:24</td>
+                                    <th>Normal</th>
+                                    <td>17°</td>
+                                    <td>30%</td>
+                                    <td>30°</td>
+                                    <td>30%</td>
+                                    <td>
+                                        <a href="#">
+                                            images.zip
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="text-center bg-warning text-white">
+                                    <td>19.03.2024<br>14:55</td>
+                                    <th>Diseased</th>
+                                    <td>17°</td>
+                                    <td>30%</td>
+                                    <td>17°</td>
+                                    <td>30%</td>
+                                    <td>
+                                        <a href="#">
+                                            images.zip
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="text-center bg-success text-white">
+                                    <td>23.03.2024<br>15:33</td>
+                                    <th>Normal</th>
+                                    <td>17°</td>
+                                    <td>30%</td>
+                                    <td>17°</td>
+                                    <td>30%</td>
+                                    <td>
+                                        <a href="#">
+                                            images.zip
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="text-center bg-success text-white">
+                                    <td>27.03.2024<br>15:10</td>
+                                    <th>Normal</th>
+                                    <td> 17°</td>
+                                    <td>30%</td>
+                                    <td>17°</td>
+                                    <td>30%</td>
+                                    <td>
+                                        <a href="#">
+                                            images.zip
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="text-center bg-success text-white">
+                                    <td>30.03.2024<br>14:43</td>
+                                    <th>Normal</th>
+                                    <td>17°</td>
+                                    <td>30%</td>
+                                    <td>17°</td>
+                                    <td>30%</td>
+                                    <td>
+                                        <a href="#">
+                                            images.zip
+                                        </a>
+                                    </td>
+                                    <tr class="text-center bg-warning text-white">
+                                        <td>30.03.2024<br>14:43</td>
+                                        <th>Normal</th>
+                                        <td>17°</td>
+                                        <td>30%</td>
+                                        <td>17°</td>
+                                        <td>30%</td>
+                                        <td>
+                                            <a href="#">
+                                                images.zip
+                                            </a>
+                                        </td>
+                                        <tr class="text-center bg-success text-white">
+                                            <td>30.03.2024<br>14:43</td>
+                                            <th>Normal</th>
+                                            <td>17°</td>
+                                            <td>30%</td>
+                                            <td>17°</td>
+                                            <td>30%</td>
+                                            <td>
+                                                <a href="#">
+                                                    images.zip
+                                                </a>
+                                            </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+        </div>
+    </div>
+{% endblock  %}
