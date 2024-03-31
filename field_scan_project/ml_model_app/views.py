@@ -42,5 +42,6 @@ def image_model(image_path):
     # print(detection_results[0].names)
 
     # print(list(detection_results[0].probs.top5conf))
+
     return detection_results[0].probs.top5conf
 

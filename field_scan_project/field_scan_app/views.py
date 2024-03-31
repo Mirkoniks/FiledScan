@@ -1,14 +1,17 @@
 from django.conf import settings
 from django.shortcuts import render
 from field_scan_app.forms.uload_image_form import ImageUploadForm
-from field_scan_app.models import ImageFile
+from field_scan_app.models import ImageFile, Signal
 from ml_model_app.views import image_model
 
 def index(request):
     return render(request, 'index.html')
 
 def dashboard(request):
-    return render(request, 'logged_in/index.html')
+    context = {
+            'signals': list(Signal.objects.all())[:-5],
+        }
+    return render(request, 'logged_in/index.html', context)
 
 def signals(request):
     return render(request, 'logged_in/signals.html')
@@ -24,10 +27,20 @@ def upload_image(request):
 
             data = image_model(img.file.name)
 
+            disease = float(data[0])*100
+            health = float(data[1])*100
+
+
+            signal = Signal.objects.create(
+                                            image = img,
+                                            disease = disease,
+                                            health = health
+                                       )
+
             form = ImageUploadForm()
             context = {
-                'disease': float(data[0])*100,
-                'health': float(data[1])*100,
+                'disease': disease,
+                'health': health,
                 'form': form, 
                 'uploaded_image_url': '/media/'+img.file.name,
             }

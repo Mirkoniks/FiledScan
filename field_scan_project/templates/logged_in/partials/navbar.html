@@ -1,4 +1,5 @@
 {% load static %}
+{% load auth_tags %}
 
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
@@ -48,6 +49,7 @@
                 <h6 class="dropdown-header">
                     Signals center
                 </h6>
+                {{last_two_signals}}
                 <div class="dropdown-item d-flex align-items-center  bg-warning text-white" href="#">
                     <div class="font-weight-bold">
                         <h6>Analysis done</h6>

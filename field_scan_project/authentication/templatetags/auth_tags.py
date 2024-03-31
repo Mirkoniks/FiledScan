@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.utils import timezone
 from authentication.models import UserProfile, Role
+from field_scan_app.models import Signal
 
 register = template.Library()
 
@@ -155,6 +156,11 @@ def user_can_edit_docs(user):
     else:
         return 'transparent'
 
+def last_two_signals():
+    data = list(Signal.objects.all()[:-2])
+    print(f'\n\n{data}\n\n')
+    return data
+
 register.filter('is_user_authenticated', is_user_authenticated)
 register.filter('user_is_admin', user_is_admin)
 register.filter('user_is_club_member', user_is_club_member)
@@ -173,3 +179,4 @@ register.filter('user_can_assign_roles', user_can_assign_roles)
 register.filter('user_can_create_edit_inventory', user_can_create_edit_inventory)
 register.filter('user_can_approve_inventory', user_can_approve_inventory)
 register.filter('user_can_edit_docs', user_can_edit_docs)
+register.filter('last_two_signals', last_two_signals)

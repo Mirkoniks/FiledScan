@@ -322,7 +322,7 @@ def user_logout(request):
         logout(request)
         return redirect('dashboard')
 
-    return redirect('index')
+    return redirect('main index')
     
 def signin(request):
     # try:
